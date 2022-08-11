@@ -6,6 +6,7 @@ const {
   lookupPosts,
   posting_modify,
   posting_delete,
+  user_posting,
 } = require("./posts");
 const cors = require("cors");
 
@@ -23,6 +24,7 @@ app.get("/posts/lookup", lookupPosts);
 //put은 전체적으로 수정할때 patch는 부분수정
 app.patch("/posts/:id", posting_modify);
 app.delete("/posts/:id", posting_delete);
+app.patch("/user", user_posting);
 
 const server = http.createServer(app);
 

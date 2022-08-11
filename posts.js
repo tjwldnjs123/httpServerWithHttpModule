@@ -66,4 +66,22 @@ const posting_delete = (req, res) => {
 
   res.json({ message: "postingDeleted" });
 };
-module.exports = { createPosts, lookupPosts, posting_modify, posting_delete };
+const user_posting = (req, res) => {
+  const userId = req.body.id;
+
+  let arr = [];
+  posts.forEach((data) => {
+    if (data.id === userId) {
+      arr.push(data);
+    }
+  });
+
+  res.json({ id: userId, data: arr });
+};
+module.exports = {
+  createPosts,
+  lookupPosts,
+  posting_modify,
+  posting_delete,
+  user_posting,
+};
